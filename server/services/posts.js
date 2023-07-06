@@ -1,4 +1,4 @@
-const CategoriesModel = require("../DataService/models/category")
+const CategoriesModel = require("../DataStore/models/category")
 
 async function GetCategories() {
     try {

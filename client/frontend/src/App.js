@@ -1,12 +1,27 @@
-import './App.css';
-import Footer from './components/footer';
-import Header from './components/header'
+import Header from "./components/header";
+import Footer from "./components/footer";
+import Categories from "./components/catregories-carousel";
+import "./App.css";
 
 function App() {
   return (
     <div className="App">
-      <Header/>
-      <Footer/>
+      <Header />
+      <Categories />
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <Footer />
     </div>
   );
 }

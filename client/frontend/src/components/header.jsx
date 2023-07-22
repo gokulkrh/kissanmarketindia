@@ -1,16 +1,23 @@
-import { React, Component } from 'react'
-import './styles/header.css'
-import logo from '/home/gokul/Projects/kissanmarketindia/frontend/src/images/logo.png';
+import {React, Component} from "react";
+import "./styles/header.css"
 
-export default class Header extends Component{
+export default class Header extends Component {
     render() {
         return (
-            <div className='header'>
-                <img className='logo' src={logo} alt="" />
-                <button className='user-buttons'>Login</button>
-                <button className='user-buttons'>Register</button>
-                <button>Add Product</button>
+            <div className="header">
+                <div className="header-container">
+                    <div className="header-logo">
+                        <a href="http://localhost:3000/">
+                            <img src="https://kissanmarketindia.com/storage/app/logo/thumb-500x100-logo-6007d777841c6.png" alt="" />
+                        </a>
+                    </div>
+                    <div className="user-buttons">
+                        <button className="user-button">Login</button>
+                        <button className="user-button">Register</button>
+                        <button className="add-product-button">Add Product</button>
+                    </div>
+                </div>
             </div>
-        );
+        )
     }
 }

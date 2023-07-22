@@ -6,6 +6,11 @@
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
+    "migrate-gen": "npx sequelize-cli migration:generate --name $npm_config_name --migrations-path ./DataStore/migrations",
+    "migrate-up": "npx sequelize-cli --config ./DataStore/config/config.json db:migrate --migrations-path ./DataStore/migrations",
+    "migrate-down": "npx sequelize-cli --config ./DataStore/config/config.json db:migrate:undo:all --migrations-path ./DataStore/migrations",
+    "seed-up": "npx sequelize-cli --config ./DataStore/config/config.json db:seed:all --seeders-path ./DataStore/seeders",
+    "seed-down": "npx sequelize-cli --config ./DataStore/config/config.json db:seed:undo:all --seeders-path ./DataStore/seeders",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -19,6 +24,7 @@
   },
   "homepage": "https://github.com/gokulkrh/kissanmarketindia#readme",
   "dependencies": {
+    "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "mysql2": "^3.3.3",

@@ -1,16 +1,23 @@
-const express = require('express'),
-    postController = require('../controllers/posts-controller')
-    router = express.Router();
+import { Router } from "express";
+import {
+  LoginHandler,
+  RegisterHandler,
+  FetchUserHandler,
+} from "../controllers/users/user.js";
 
-    
-router.get('/', (req, res) => {
-    res.send("Server is up and running");
+var router = Router();
+
+router.get("/status", (req, res) => {
+  res.send("Server is up and running");
 });
 
-router.get('/v1/categories', postController.categoriesHandler)
+router.get("/v1/categories");
 
-router.post('/v1/users/login')
-router.post('/v1/users/register')
-router.post('/v1/products/all')
+router.post("/v1/users/login", LoginHandler);
+router.post("/v1/users/register", RegisterHandler);
+router.get("/v1/users/:username", FetchUserHandler);
 
-module.exports = router;
+router.post("/v1/products/all");
+router.get("/v1/products/:location");
+
+export default router;

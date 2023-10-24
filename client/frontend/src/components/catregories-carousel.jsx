@@ -1,29 +1,44 @@
-import {React, Component} from "react";
-import "./styles/footer.css"
+import {React, useLayoutEffect, useRef, useState} from "react";
+import axios from "axios";
+import "./styles/categories-carousel.css"
 
-export default class Categories extends Component {
-    componentDidMount() {
-        this.fetchData();
-    }
-    
-    fetchData = () => {
-        fetch("http://localhost:5000/v1/categories") // Replace with your API endpoint
-        .then((response) => response.json())
+function Categories() {
+    const hasMountedRef = useRef(false);
+    const [data, setData] = useState([]);
+
+    const fetchData = () => {
+        axios.get("http://localhost:5000/v1/categories")
+        .then((response) => response.data)
         .then((data) => {
-            // Handle the retrieved data here
+            setData(data);
             console.log(data);
         })
         .catch((error) => {
-            // Handle any errors that occur during the request
             console.error("Error:", error);
         });
     };
-      
-    render() {
-        return (
-            <div className="categories-carousel">
-                
+
+    useLayoutEffect(() => {
+        if (!hasMountedRef.current) {
+          fetchData();
+          hasMountedRef.current = true;
+        }
+      }, []);
+
+    return (
+        <div className="categories-container">
+            <div className="categories-content">
+                <div className="card-wrapper">
+                    {data.map((category) => (
+                        <div className="card">
+                            <img className="category-image" src={category.img_url} alt={category.name} />
+                            <span>{category.name}</span>
+                        </div>
+                    ))}
+                </div>
             </div>
-        )
-    }
+        </div>
+    )
 }
+
+export default Categories

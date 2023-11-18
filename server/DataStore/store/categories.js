@@ -7,7 +7,6 @@ async function GetCategories() {
     });
     return categories;
   } catch (error) {
-    console.log(error);
     throw error;
   }
 }

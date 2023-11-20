@@ -1,5 +1,5 @@
 import { DataTypes } from "sequelize";
-import sequelize from "../config/sequelize";
+import sequelize from "../config/sequelize.js";
 
 const Post = sequelize.define("posts", {
   id: {
@@ -27,8 +27,12 @@ const Post = sequelize.define("posts", {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  place_id: {
-    type: DataTypes.INTEGER,
+  latitude: {
+    type: DataTypes.FLOAT,
+    allowNull: false,
+  },
+  longitude: {
+    type: DataTypes.FLOAT,
     allowNull: false,
   },
   home_delivery: {
@@ -53,10 +57,6 @@ const Post = sequelize.define("posts", {
     allowNull: false,
     defaultValue: DataTypes.NOW,
   },
-  // isDeleted: {
-  //   type: Boolean,
-  //   defaultValue: false,
-  // },
 });
 
 export default Post;

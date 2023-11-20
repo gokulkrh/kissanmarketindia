@@ -1,4 +1,4 @@
-import PostsModel from "../models/post";
+import PostsModel from "../models/post.js";
 
 async function GetAllPosts() {
   try {
@@ -11,6 +11,6 @@ async function GetAllPosts() {
   }
 }
 
-export default {
+export {
   GetAllPosts,
 };

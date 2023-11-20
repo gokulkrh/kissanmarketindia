@@ -1,16 +1,15 @@
-import { findAll } from "../DataStore/models/category";
+import Category from '../models/category.js';
 
 async function GetCategories() {
   try {
-    const categories = await findAll({
+    return await Category.findAll({
       attributes: { exclude: ["createdAt", "updatedAt", "id"] },
     });
-    return categories;
   } catch (error) {
     throw error;
   }
 }
 
-export default {
+export {
   GetCategories,
 };

@@ -37,8 +37,12 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: true,
       },
-      place_id: {
-        type: Sequelize.INTEGER,
+      latitude: {
+        type: Sequelize.FLOAT,
+        allowNull: false,
+      },
+      longitude: {
+        type: Sequelize.FLOAT,
         allowNull: false,
       },
       pincode: {

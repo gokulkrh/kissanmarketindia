@@ -1,14 +1,31 @@
 import {
-    GetAllPosts,
+    FetchPostsByLocation,
+    FetchAllPosts,
 } from '../../DataStore/store/posts.js'
 
-async function PostsByCategory() {};
+import GetLocationCoordinates from '../../DataStore/store/places.js';
 
-async function PostsByLocation() {};
+async function PostsByLocation(location) {
+    try {
+        const place = await GetLocationCoordinates(location)
+        const coordinates = {
+            latitude: place[0].latitude,
+            longitude: place[0].longitude,
+        };
+        // console.log(place)
+        // console.log(place[0].latitude, place[0].longitude)
+        const posts = await FetchPostsByLocation(coordinates);
+        return posts
+    } catch (error) {
+        console.error('failed to fetch posts: ', error.message)
+        throw error
+    }
+};
 
 async function Allposts() {
     try {
-        return await GetAllPosts();
+        const posts = await FetchAllPosts();
+        return posts;
     } catch (error) {
         throw error;
     }
@@ -20,7 +37,7 @@ async function Allposts() {
 //     console.error(error)
 //   }
 export {
-    PostsByCategory,
+    // PostsByCategory,
     PostsByLocation,
     Allposts,
 };

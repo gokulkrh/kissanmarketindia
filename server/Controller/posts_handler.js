@@ -1,14 +1,24 @@
 import {
-    GetAllCategories
+    GetCategories
 } from '../Service/Posts/categories.js'
 import {
+    PostsByLocation,
     Allposts
 } from '../Service/Posts/posts.js'
 
 async function CategoriesHandler(req, res) {
     try {
-        const categories = await GetAllCategories();
+        const categories = await GetCategories();
         res.status(200).json({categories});
+    } catch (error) {
+        res.status(500).json({error: error});
+    }
+};
+
+async function PostsByLocationHandler(req, res) {
+    try {
+        const posts = await PostsByLocation(req.params.location);
+        res.status(200).json({posts});
     } catch (error) {
         res.status(500).json({error: error});
     }
@@ -27,4 +37,5 @@ async function AllProductsHandler(req, res) {
 export {
     CategoriesHandler,
     AllProductsHandler,
+    PostsByLocationHandler,
 };

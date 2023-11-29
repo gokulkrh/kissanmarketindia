@@ -1,12 +1,12 @@
 import {
-  GetCategories
-} from '../../DataStore/store/categories.js'
+  FetchAllCategories
+} from '../../DataStore/store/posts.js'
 
-export async function GetAllCategories() {
+export async function GetCategories() {
   try {
-    const categories = await GetCategories();
+    const categories = await FetchAllCategories();
     return categories;
   } catch (error) {
     console.error(error)
   }
-}
+} 

@@ -6,12 +6,12 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon index.js",
-    "migrate-gen": "npx sequelize-cli migration:generate --name $npm_config_name --migrations-path ./DataStore/migrations",
-    "migrate-up": "npx sequelize-cli --config ./DataStore/config/config.json db:migrate --migrations-path ./DataStore/migrations",
-    "migrate-down": "npx sequelize-cli --config ./DataStore/config/config.json db:migrate:undo:all --migrations-path ./DataStore/migrations",
-    "seed-gen": "npx sequelize-cli seed:generate --name $npm_config_name --seeders-path ./DataStore/seeders",
-    "seed-up": "npx sequelize-cli --config ./DataStore/config/config.json db:seed:all --seeders-path ./DataStore/seeders",
-    "seed-down": "npx sequelize-cli --config ./DataStore/config/config.json db:seed:undo:all --seeders-path ./DataStore/seeders",
+    "migrategen": "npx knex migrate:make $npm_config_name",
+    "migrateup": "npx knex migrate:latest",
+    "migratedown": "npx knex migrate:rollback",
+    "seedgen": "npx knex seed:make $npm_config_name",
+    "seedup": "npx knex migrate:rollback && npx knex migrate:latest && npx knex seed:run",
+    "seeddown": "npx knex seed:rollback",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -25,15 +25,15 @@
   },
   "homepage": "https://github.com/gokulkrh/kissanmarketindia#readme",
   "dependencies": {
+    "body-parser": "^1.20.2",
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "express-session": "^1.17.3",
     "jsonwebtoken": "^9.0.2",
+    "knex": "^3.0.1",
     "mysql2": "^3.3.3",
-    "nodemon": "^2.0.22",
-    "sequelize": "^6.33.0",
-    "sequelize-cli": "^6.6.0"
+    "nodemon": "^2.0.22"
   },
   "devDependencies": {
     "@babel/core": "^7.22.20",

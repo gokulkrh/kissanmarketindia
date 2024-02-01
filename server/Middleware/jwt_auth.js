@@ -1,21 +1,19 @@
-import jwt from "jsonwebtoken"
+import jwt from "jsonwebtoken";
 
-function CreateToken(username) {
-    const key = process.env.JWT_SECRET_KEY;
-    let data = {
-        time: Date(),
-        username: username,
-    };
-    const token = jwt.sign(data, key);
-    return token;
-};
+function CreateToken(user) {
+  const key = process.env.JWT_SECRET_KEY;
+  let data = {
+    time: Date(),
+    user_id: user,
+  };
+  const token = jwt.sign(data, "key", {
+    expiresIn: 24 * 60 * 60,
+  });
+  return token;
+}
 
-function ValidateToken() {};
+function ValidateToken() {}
 
-function RefreshToken() {};
+function RefreshToken() {}
 
-export {
-    CreateToken,
-    ValidateToken,
-    RefreshToken
-};
+export { CreateToken, ValidateToken, RefreshToken };

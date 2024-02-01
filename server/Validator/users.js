@@ -1,19 +1,23 @@
+import validator from "validator";
+import RegisterUserRequest from "../DataStore/models/requests/users.js";
 
 function ValidateLoginRequest(request) {
-    return null;
-};
-
-function ValidateRegisterRequest(request) {
-    return request, null;
+  const reqBody = {};
+  return reqBody;
 }
 
-// function ValidateEmail(email) {};
+function validateLoginType(type) {}
 
-// function ValidatePhone(phone_number) {};
+function ValidateRegisterRequest(req) {
+  let reqBody = new RegisterUserRequest(req.body);
 
-// function ValidatePincode(pincode) {};
+  return reqBody;
+}
 
-export {
-    ValidateLoginRequest,
-    ValidateRegisterRequest
-};
+function validateEmail(email) {}
+
+function validatePhone(phone_number) {}
+
+// function ValidatePincode(pincode) {}
+
+export { ValidateLoginRequest, ValidateRegisterRequest };

@@ -1,13 +1,14 @@
 /**
  * @param { import("knex").Knex } knex
- * @returns { Promise<void> } 
+ * @returns { Promise<void> }
  */
 export async function seed(knex) {
-  await knex('posts').del()
-  await knex('posts').insert([
+  await knex("posts").del();
+  await knex("posts").insert([
     {
       post_id: "post1",
       title: "Kovakka",
+      category: "Vegetable-&-Fruits",
       description: "Hello i want to sell kovakka",
       price: 50,
       quantity: 5,
@@ -21,6 +22,7 @@ export async function seed(knex) {
     {
       post_id: "post2",
       title: "Pasuvin milk",
+      category: "Animals-&-Pets",
       description: "Hello i want to sell milk",
       price: 30,
       quantity: 3,
@@ -34,6 +36,7 @@ export async function seed(knex) {
     {
       post_id: "post3",
       title: "Chakka",
+      category: "Vegetable-&-Fruits",
       description: "Hello i want to sell Chakka",
       price: 80,
       quantity: 4,
@@ -47,6 +50,7 @@ export async function seed(knex) {
     {
       post_id: "post4",
       title: "Perakka",
+      category: "Vegetable-&-Fruits",
       description: "Hello i want to sell guava",
       price: 120,
       quantity: 8,
@@ -60,6 +64,7 @@ export async function seed(knex) {
     {
       post_id: "post5",
       title: "Grapes",
+      category: "Vegetable-&-Fruits",
       description: "Hello i want to sell grapes",
       price: 180,
       quantity: 7,
@@ -73,6 +78,7 @@ export async function seed(knex) {
     {
       post_id: "post6",
       title: "Apples",
+      category: "Vegetable-&-Fruits",
       description: "Hello i want to sell apples",
       price: 140,
       quantity: 2,
@@ -86,6 +92,7 @@ export async function seed(knex) {
     {
       post_id: "post7",
       title: "Pavakka",
+      category: "Vegetable-&-Fruits",
       description: "Hello i want to sell pavakka",
       price: 80,
       quantity: 9,
@@ -112,6 +119,7 @@ export async function seed(knex) {
     {
       post_id: "post9",
       title: "Labrador Puppy",
+      category: "Animals-&-Pets",
       description: "Hello i want to sell dogs",
       price: 30,
       quantity: 3,
@@ -125,6 +133,7 @@ export async function seed(knex) {
     {
       post_id: "post10",
       title: "Cabbage",
+      category: "Vegetable-&-Fruits",
       description: "Hello i want to sell cabbage",
       price: 80,
       quantity: 4,
@@ -138,6 +147,7 @@ export async function seed(knex) {
     {
       post_id: "post11",
       title: "Onion",
+      category: "Vegetable-&-Fruits",
       description: "Hello i want to sell onion",
       price: 120,
       quantity: 8,
@@ -151,6 +161,7 @@ export async function seed(knex) {
     {
       post_id: "post12",
       title: "Clay pots",
+      category: "Vanavasi-&-Handicraft",
       description: "Hello i want to sell clay pots",
       price: 180,
       quantity: 7,
@@ -164,6 +175,7 @@ export async function seed(knex) {
     {
       post_id: "post13",
       title: "Wild Honey",
+      category: "Honey-Farmer-Products",
       description: "Hello i want to sell wild honey",
       price: 140,
       quantity: 2,
@@ -177,6 +189,7 @@ export async function seed(knex) {
     {
       post_id: "post14",
       title: "Boiled Candy",
+      category: "Vanavasi-&-Handicraft",
       description: "Hello i want to sell candy",
       price: 80,
       quantity: 9,
@@ -190,6 +203,7 @@ export async function seed(knex) {
     {
       post_id: "post15",
       title: "Persian Cats",
+      category: "Animals-&-Pets",
       description: "Hello i want to sell cats",
       price: 50,
       quantity: 5,
@@ -203,6 +217,7 @@ export async function seed(knex) {
     {
       post_id: "post16",
       title: "Goat Milk",
+      category: "Animals-&-Pets",
       description: "Hello i want to sell Goat Milk",
       price: 30,
       quantity: 3,
@@ -216,6 +231,7 @@ export async function seed(knex) {
     {
       post_id: "post17",
       title: "Nadan Kozhi",
+      category: "Animals-&-Pets",
       description: "Hello i want to sell Kozhi",
       price: 80,
       quantity: 4,
@@ -229,6 +245,7 @@ export async function seed(knex) {
     {
       post_id: "post18",
       title: "Alphonso Mango",
+      category: "Vegetable-&-Fruits",
       description: "Hello i want to sell mango",
       price: 120,
       quantity: 8,
@@ -242,6 +259,7 @@ export async function seed(knex) {
     {
       post_id: "post19",
       title: "Coconut",
+      category: "Vegetable-&-Fruits",
       description: "Hello i want to sell coconuts",
       price: 180,
       quantity: 7,
@@ -255,6 +273,7 @@ export async function seed(knex) {
     {
       post_id: "post20",
       title: "Peas",
+      category: "Grains",
       description: "Hello i want to sell peas",
       price: 140,
       quantity: 2,
@@ -268,6 +287,7 @@ export async function seed(knex) {
     {
       post_id: "post21",
       title: "Pineapples",
+      category: "Vegetable-&-Fruits",
       description: "Hello i want to sell pineapples",
       price: 80,
       quantity: 9,
@@ -281,6 +301,7 @@ export async function seed(knex) {
     {
       post_id: "post22",
       title: "Wheat",
+      category: "Grains",
       description: "Hello i want to sell wheat",
       price: 80,
       quantity: 9,
@@ -294,6 +315,7 @@ export async function seed(knex) {
     {
       post_id: "post23",
       title: "Prawns",
+      category: "Fish-Farmer-Products",
       description: "Hello i want to sell prawns",
       price: 80,
       quantity: 9,
@@ -307,6 +329,7 @@ export async function seed(knex) {
     {
       post_id: "post24",
       title: "Squid",
+      category: "Fish-Farmer-Products",
       description: "Hello i want to sell squid",
       price: 80,
       quantity: 9,
@@ -320,6 +343,7 @@ export async function seed(knex) {
     {
       post_id: "post25",
       title: "Homemade Ink",
+      category: "Vanavasi-&-Handicraft",
       description: "Hello i want to sell ink",
       price: 80,
       quantity: 9,
@@ -333,6 +357,7 @@ export async function seed(knex) {
     {
       post_id: "post26",
       title: "Handcrafted Baskets",
+      category: "Vanavasi-&-Handicraft",
       description: "Hello i want to sell baskets",
       price: 80,
       quantity: 9,
@@ -346,6 +371,7 @@ export async function seed(knex) {
     {
       post_id: "post27",
       title: "Goldfish",
+      category: "Animals-&-Pets",
       description: "Hello i want to sell goldfish",
       price: 80,
       quantity: 9,
@@ -359,6 +385,7 @@ export async function seed(knex) {
     {
       post_id: "post28",
       title: "Rose plants",
+      category: "Plants-&-Seeds",
       description: "Hello i want to sell rose plants",
       price: 80,
       quantity: 9,
@@ -372,6 +399,7 @@ export async function seed(knex) {
     {
       post_id: "post29",
       title: "Orchid plants",
+      category: "Plants-&-Seeds",
       description: "Hello i want to sell orchids",
       price: 80,
       quantity: 9,
@@ -385,6 +413,7 @@ export async function seed(knex) {
     {
       post_id: "post30",
       title: "Orange",
+      category: "Vegetable-&-Fruits",
       description: "Hello i want to sell oranges",
       price: 80,
       quantity: 9,

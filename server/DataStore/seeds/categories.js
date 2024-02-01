@@ -1,10 +1,10 @@
 /**
  * @param { import("knex").Knex } knex
- * @returns { Promise<void> } 
+ * @returns { Promise<void> }
  */
 export async function seed(knex) {
-  await knex('categories').del()
-  await knex('categories').insert([
+  await knex("categories").del();
+  await knex("categories").insert([
     {
       name: "Vegetable & Fruits",
       image_url: "http://localhost:8000/categories/Vegetable-&-Fruits.jpg",

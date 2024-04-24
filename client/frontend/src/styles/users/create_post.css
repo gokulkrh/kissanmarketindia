@@ -1,0 +1,13 @@
+.create-post-page {
+    margin: auto;
+    display: flex;
+    width: 70%;
+}
+
+.create-post-form {
+    width: 60%;
+}
+
+.post-ads-information{
+    width: 40%;
+}

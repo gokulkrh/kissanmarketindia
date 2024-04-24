@@ -1,31 +1,25 @@
 import { Router, json } from "express";
-import {
-  RegisterHandler,
-  LoginHandler,
-} from "../Controller/user_controller.js";
-import {
-  AllProductsHandler,
-  CategoriesHandler,
-  PostsByLocationHandler,
-} from "../Controller/posts_handler.js";
+import postsController from "../controller/posts_handler.js";
 
 var router = Router().use(json());
 
 router.get("/health-check", (req, res) => {
-  res.send("Server is up and running");
+  res.status(200).send("<h1>Hello World!!</h1>");
 });
 
 // router.get("/v1/users/:username", FetchUserHandler);
-router.post("/v1/users/login", LoginHandler);
-router.post("/v1/users/register", RegisterHandler);
+// router.post("/v1/users/login", LoginHandler);
+// router.post("/v1/users/register", RegisterHandler);
+// router.get("/api/sessions/oauth/google", GoogleOauthHandler);
 // router.put("/v1/users/:username", UpdateUserHandler);
 
-router.get("/v1/categories", CategoriesHandler);
-router.get("/v1/posts/all", AllProductsHandler);
-router.get("/v1/posts/:location", PostsByLocationHandler);
-router.get("/v1/posts/:category");
-router.post("/v1/posts/create");
+router.get("/api/v1/categories", postsController.categoriesHandler);
+router.get("/api/v1/posts/all", postsController.allProductsHandler);
+router.get("/v1/posts/loc/:location", postsController.postsByLocationHandler);
+router.get("/api/v1/posts/:postID", postsController.getPostByIDHandler);
+router.get("/api/v1/posts/category/:category");
+router.post("/api/v1/posts/create");
 
-router.post("/v1/images/upload");
+router.post("/api/v1/images/upload");
 
 export default router;

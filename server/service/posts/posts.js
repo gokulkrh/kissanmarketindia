@@ -1,7 +1,7 @@
-import postsStore from "../../dataStore/store/posts.js";
+import postsStore from "../../data_store/store/posts.js";
 
-import GetLocationCoordinates from "../../dataStore/store/places.js";
-import Post from "../../dataStore/models/entities/posts.js";
+import GetLocationCoordinates from "../../data_store/store/places.js";
+import Post from "../../data_store/models/entities/posts.js";
 
 export default {
   getCategories: async () => {

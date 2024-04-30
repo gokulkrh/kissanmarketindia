@@ -1,9 +1,12 @@
-export default class RegisterUserRequest {
+import { generatePIDwithPrefix } from "../../../utils/utils.js";
+
+export default class User {
   constructor(reqBody) {
     this.setValues(reqBody);
   }
 
   setValues(reqBody) {
+    this.user_id = generatePIDwithPrefix("usr");
     this.fullname = reqBody.fullname || "";
     this.password = reqBody.password || "";
     this.email = reqBody.email || "";

@@ -11,7 +11,7 @@ export default function LatestPosts() {
 
   const fetchPosts = () => {
     axios
-      .get("http://localhost:5000/v1/posts/all")
+      .get("http://localhost:5000/api/v1/posts/all")
       .then((response) => response.data)
       .then((data) => {
         setData(data.posts);

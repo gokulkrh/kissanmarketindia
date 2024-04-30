@@ -24,33 +24,33 @@ export const development = {
 export const staging = {
   client: "mysql2",
   connection: {
-    host: "localhost",
-    user: "root",
-    password: "",
-    database: "kissanmarket_local",
+    host: process.env.DB_HOST,
+    user: process.env.DB_USERNAME,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME,
     charset: "utf8",
   },
   migrations: {
-    directory: path.resolve() + "/DataStore/migrations",
+    directory: path.resolve() + "/data_store/migrations",
   },
   seeds: {
-    directory: path.resolve() + "/DataStore/seeds",
+    directory: path.resolve() + "/data_store/seeds",
   },
 };
 
 export const production = {
   client: "mysql2",
   connection: {
-    host: "localhost",
-    user: "root",
-    password: "",
-    database: "kissanmarket_local",
+    host: process.env.DB_HOST,
+    user: process.env.DB_USERNAME,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME,
     charset: "utf8",
   },
   migrations: {
-    directory: path.resolve() + "/DataStore/migrations",
+    directory: path.resolve() + "/data_store/migrations",
   },
   seeds: {
-    directory: path.resolve() + "/DataStore/seeds",
+    directory: path.resolve() + "/data_store/seeds",
   },
 };

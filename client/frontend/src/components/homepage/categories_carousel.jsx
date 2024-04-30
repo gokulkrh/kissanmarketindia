@@ -12,7 +12,7 @@ function Categories() {
 
   const fetchData = () => {
     axios
-      .get("http://localhost:5000/v1/categories")
+      .get("http://localhost:5000/api/v1/categories/list")
       .then((response) => response.data)
       .then((data) => {
         setData(data.categories);
@@ -50,15 +50,8 @@ function Categories() {
           {data.map((category, index) => {
             const isVisible = index >= currentIndex && index < currentIndex + 4;
             return (
-              <li
-                key={category.name}
-                className={`category-card-${isVisible ? "" : "hidden"}`}
-              >
-                <img
-                  className="category-image"
-                  src={category.image_url}
-                  alt={category.name}
-                />
+              <li key={category.name} className={`category-card-${isVisible ? "" : "hidden"}`}>
+                <img className="category-image" src={category.image_url} alt={category.name} />
                 <br />
                 <span>{category.name}</span>
               </li>

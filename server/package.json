@@ -34,7 +34,7 @@
     "express-session": "^1.18.0",
     "jsonwebtoken": "^9.0.2",
     "knex": "^3.0.1",
-    "mysql2": "^3.3.3",
+    "mysql2": "^3.9.7",
     "nodemon": "^2.0.22",
     "validator": "^13.11.0"
   },

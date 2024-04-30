@@ -1,23 +1,26 @@
-import validator from "validator";
-import RegisterUserRequest from "../dataStore/models/requests/users.js";
+import RegisterUserRequest from "../data_store/models/requests/users.js";
 
-function ValidateLoginRequest(request) {
-  const reqBody = {};
-  return reqBody;
-}
+export default {
+  validateLoginRequest: async () => {},
 
-function validateLoginType(type) {}
+  validateRegisterRequest(req, res) {
+    const reqBody = new RegisterUserRequest(req.body);
+    let validationErrors = [];
 
-function ValidateRegisterRequest(req) {
-  let reqBody = new RegisterUserRequest(req.body);
+    try {
+      reqBody.validateName();
+      reqBody.validateEmail();
+      reqBody.validatePhone();
+      reqBody.validateProfilePicURL();
+      reqBody.validateSendMarketingEmails();
+    } catch (error) {
+      validationErrors.push(error.message);
+    }
 
-  return reqBody;
-}
+    if (validationErrors.length > 0) {
+      throw new Error(validationErrors);
+    }
 
-function validateEmail(email) {}
-
-function validatePhone(phone_number) {}
-
-// function ValidatePincode(pincode) {}
-
-export { ValidateLoginRequest, ValidateRegisterRequest };
+    return reqBody;
+  },
+};

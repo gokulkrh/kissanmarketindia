@@ -1,0 +1,25 @@
+{
+  "short_name": "Kissan Market India",
+  "name": "Kissan Market India",
+  "icons": [
+    {
+      "src": "just_kissan_market.ico",
+      "sizes": "45x46",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "just_kissan_market.png",
+      "type": "image/png",
+      "sizes": "45x46"
+    },
+    {
+      "src": "just_kissan_market.png",
+      "type": "image/png",
+      "sizes": "45x46"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}

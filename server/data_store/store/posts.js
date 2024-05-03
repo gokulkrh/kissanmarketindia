@@ -4,9 +4,7 @@ import Post from "../models/entities/posts.js";
 export default {
   fetchAllCategories: async () => {
     try {
-      const categories = await db
-        .select("name", "image_url")
-        .from("categories");
+      const categories = await db.select("name", "image_url").from("categories");
       return categories;
     } catch (error) {
       console.error("Error fetching categories:", error.message);
@@ -28,12 +26,7 @@ export default {
     try {
       const posts = await db
         .select("*")
-        .select(
-          db.raw(
-            "ST_DISTANCE_SPHERE(POINT(?, ?), POINT(longitude, latitude))/1000 AS distance",
-            [coordinates.longitude, coordinates.latitude]
-          )
-        )
+        .select(db.raw("ST_DISTANCE_SPHERE(POINT(?, ?), POINT(longitude, latitude))/1000 AS distance", [coordinates.longitude, coordinates.latitude]))
         .select(
           db.raw(
             "CASE " +
@@ -41,19 +34,11 @@ export default {
               "WHEN ST_DISTANCE_SPHERE(POINT(?, ?), POINT(longitude, latitude))/1000 <= 20 THEN 'within_20_km' " +
               "ELSE 'beyond_20_km' " +
               "END AS distance_category",
-            [
-              coordinates.longitude,
-              coordinates.latitude,
-              coordinates.longitude,
-              coordinates.latitude,
-            ]
+            [coordinates.longitude, coordinates.latitude, coordinates.longitude, coordinates.latitude]
           )
         )
         .from("posts")
-        .whereRaw(
-          "ST_DISTANCE_SPHERE(POINT(?, ?), POINT(longitude, latitude))/1000 <= 500",
-          [coordinates.longitude, coordinates.latitude]
-        )
+        .whereRaw("ST_DISTANCE_SPHERE(POINT(?, ?), POINT(longitude, latitude))/1000 <= 500", [coordinates.longitude, coordinates.latitude])
         .orderBy("distance");
 
       return posts;

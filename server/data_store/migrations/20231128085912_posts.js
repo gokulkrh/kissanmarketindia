@@ -17,6 +17,7 @@ export function up(knex) {
     table.string("place").notNullable();
     table.float("latitude").notNullable();
     table.float("longitude").notNullable();
+    table.boolean("is_active").defaultTo(true);
     table.boolean("is_deleted").defaultTo(false);
     table.timestamps(true, true);
   });

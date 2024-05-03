@@ -4,7 +4,16 @@ import userService from "../service/users/users.js";
 import isEmail from "validator/lib/isEmail.js";
 
 export default {
-  getUserHandler: async () => {},
+  getUserHandler: async (req, res, next) => {
+    try {
+      const user = await userService.getUser(req.body.email);
+      res.status(200).json({
+        data: user[0],
+      });
+    } catch (error) {
+      res.status(400).json({ error: error });
+    }
+  },
 
   userLoginHandler: async () => {},
 

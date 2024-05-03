@@ -10,7 +10,7 @@ router.get("/health-check", (req, res) => {
   res.status(200).send("<h1>Hello World!!</h1>");
 });
 
-router.get("/api/v1/users/:username", usersController.getUserHandler);
+router.get("/api/v1/users/:email", usersController.getUserHandler);
 router.post("/api/v1/users/login", usersController.userLoginHandler);
 router.post("/api/v1/users/register", usersController.registerUserHandler);
 router.put("/api/v1/users/:username", usersController.updateUserHandler);

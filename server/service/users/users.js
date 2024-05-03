@@ -27,4 +27,22 @@ export default {
       throw error;
     }
   },
+
+  updateUser: async (reqBody) => {
+    let user = usersStore.getUser();
+    setUserValues(user);
+  },
+
+  getUser: async (email) => {
+    try {
+      const user = usersStore.getUser(email);
+      return user;
+    } catch (error) {
+      throw error;
+    }
+  },
 };
+
+// function setUserValues(user) {
+//   user.email =
+// }

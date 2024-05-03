@@ -1,27 +1,21 @@
+import { generatePIDwithPrefix } from "../../../utils/utils.js";
+
 export default class Post {
-  constructor(
-    post_id,
-    title,
-    category,
-    description,
-    price,
-    quantity,
-    home_delivery,
-    pincode,
-    place,
-    latitude,
-    longitude
-  ) {
-    this.post_id = post_id;
-    this.title = title;
-    this.category = category;
-    this.description = description;
-    this.price = price;
-    this.quantity = quantity;
-    this.home_delivery = home_delivery;
-    this.pincode = pincode;
-    this.place = place;
-    this.latitude = latitude;
-    this.longitude = longitude;
+  constructor(data) {
+    this.setValues(data);
+  }
+
+  setValues(data) {
+    this.post_id = generatePIDwithPrefix("pst");
+    this.title = data.title || "";
+    this.category = data.category || "others";
+    this.description = data.description || "";
+    this.price = data.price || "";
+    this.quantity = data.quantity || "";
+    this.home_delivery = data.home_delivery || false;
+    this.pincode = data.pincode || "";
+    this.place = data.place || "";
+    this.latitude = data.latitude || "";
+    this.longitude = data.longitude || "";
   }
 }

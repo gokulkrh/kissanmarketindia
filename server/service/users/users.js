@@ -42,7 +42,3 @@ export default {
     }
   },
 };
-
-// function setUserValues(user) {
-//   user.email =
-// }

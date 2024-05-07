@@ -19,7 +19,7 @@ function App() {
 
           <Route path="/create" element={<CreatePostComponent />} />
           <Route path="/search" />
-          <Route path="/category/:categoryID" />
+          <Route path="/category/:categoryID" element={<PostsInfoPage />} />
 
           <Route path="/product/:productID" element={<PostsInfoPage />} />
 

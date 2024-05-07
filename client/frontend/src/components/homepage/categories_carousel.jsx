@@ -30,27 +30,18 @@ function Categories() {
     }
   }, []);
 
-  const handleNext = () => {
-    const nextIndex = (currentIndex + 4) % data.length;
-    setCurrentIndex(nextIndex);
-  };
-  const handlePrev = () => {
-    const prevIndex = currentIndex === 0 ? data.length - 4 : currentIndex - 4;
-    setCurrentIndex(prevIndex);
-  };
-
   return (
     <div className="categories-container">
       <h2>Browse by Category</h2>
       <div className="categories-content">
-        <button onClick={handlePrev}>
+        <button>
           <img src={prevIcon} alt="blah" />
         </button>
         <ul className="categories-list">
           {data.map((category, index) => {
             const isVisible = index >= currentIndex && index < currentIndex + 4;
             return (
-              <li key={category.name} className={`category-card-${isVisible ? "" : "hidden"}`}>
+              <li key={category.name} onClick={fetchData}>
                 <img className="category-image" src={category.image_url} alt={category.name} />
                 <br />
                 <span>{category.name}</span>
@@ -58,7 +49,7 @@ function Categories() {
             );
           })}
         </ul>
-        <button onClick={handleNext}>
+        <button>
           <img src={nextIcon} alt="blah" />
         </button>
       </div>

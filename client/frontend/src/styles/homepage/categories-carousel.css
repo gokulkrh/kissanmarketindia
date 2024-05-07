@@ -1,43 +1,43 @@
 .categories-container {
-    width: 90%;
-    margin: auto;
+  width: 80%;
+  margin: auto;
 }
 
 .categories-content {
-    display: flex;
+  display: flex;
 }
 
 .categories-list {
-    display: flex;
-    overflow-x: scroll;
-    scroll-behavior: smooth;
-    scrollbar-width: none;
-    list-style-type: none;
+  display: flex;
+  overflow-x: scroll;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  list-style-type: none;
 }
 
 .category-card {
-    flex-direction: column;
+  flex-direction: column;
 }
 
 .category-card-hidden {
-    display: none;
+  display: none;
 }
 
 .categories-content > button {
-    border: none;
-    cursor: pointer;
-    margin-block: auto;
-    appearance: none;
-    background-color: inherit;
-    height: 100%;
+  border: none;
+  cursor: pointer;
+  margin-block: auto;
+  appearance: none;
+  background-color: inherit;
+  height: 100%;
 }
 .categories-content > button > img {
-    height: 100%;
-    width: 20px;
-    opacity: 0.25;
+  height: 100%;
+  width: 20px;
+  opacity: 0.25;
 }
 
-.category-image  {
-    height: 160px;
-    width: 200px;
+.category-image {
+  height: 160px;
+  width: 200px;
 }

@@ -5,7 +5,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js",
+    "start": "nodemon app.js",
     "migrategen": "npx knex migrate:make $npm_config_name",
     "migrateup": "npx knex migrate:latest",
     "migratedown": "npx knex migrate:rollback",
@@ -34,7 +34,7 @@
     "express-session": "^1.18.0",
     "jsonwebtoken": "^9.0.2",
     "knex": "^3.0.1",
-    "mysql2": "^3.9.7",
+    "mysql2": "^3.11.0",
     "nodemon": "^2.0.22",
     "validator": "^13.11.0"
   },

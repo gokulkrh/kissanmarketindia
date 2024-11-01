@@ -1,18 +1,6 @@
 version: "3.3"
 
 services:
-  mysql:
-    image: mysql:latest
-    restart: always
-    environment:
-      - MYSQL_PASSWORD=
-    ports:
-      - 3306:3306
-    networks:
-      - kissmarket-shared
-    volumes:
-      - ./mysql-db:/var/lib/mysql/data
-
   server:
     container_name: kissanmarket_api
     restart: unless_stopped
@@ -24,8 +12,6 @@ services:
       - 5000:5000
     networks:
       - kissmarket-shared
-    depends_on:
-      - mysql
 
   frontend:
     container_name: kissanmarket_client
